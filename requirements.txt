@@ -1,0 +1,2 @@
+selenium>=3.141.0
+opencv-python==4.5.5.62
