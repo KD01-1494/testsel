@@ -1,13 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
-DRIVER_PATH = './chromedriver'
+from webdriver_manager.chrome import ChromeDriverManager
 
 options = Options()
 options.add_argument('--headless')
 options.add_argument('--disable-gpu')
 
-browser = webdriver.Chrome(DRIVER_PATH, chrome_options=options)
+browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
 browser.get('https://google.com')
 
 print(browser.title)
