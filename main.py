@@ -14,7 +14,7 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 driver.get('https://google.com')
 driver.save_screenshot(screen_path)
 
-with open('s.txt', encoding='utf8') as f:
+with open('s.txt', 'w', encoding='utf8') as f:
   f.write('hello')
 
 print(driver.title)
