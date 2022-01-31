@@ -1,12 +1,13 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+from os import environ
 
-options = Options()
-options.add_argument('--headless')
-options.add_argument('--disable-gpu')
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
 
-browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
-browser.get('https://google.com')
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-print(browser.title)
+driver.get('https://google.com')
+print(driver.title)
